@@ -12,7 +12,7 @@ class DishController extends Controller
      */
     public function index()
     {
-        $dishes = Dish::all();
+        $dishes = Dish::with('category')->get();
         return view('kitchen.dish',compact('dishes'));
     }
 
@@ -21,7 +21,7 @@ class DishController extends Controller
      */
     public function create()
     {
-        //
+        return view('kitchen.dish_create');
     }
 
     /**

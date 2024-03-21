@@ -22,22 +22,23 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Dish Table</h3>
+                                <a href="/dish/create" class="btn btn-sm btn-primary" style="float: right">Create New Dish</a>
                             </div>
 
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Rendering engine</th>
-                                            <th>Browser</th>
-                                            <th>Platform(s)</th>
-                                            <th>Engine version</th>
-                                            <th>CSS grade</th>
+                                            <th>Image</th>
+                                            <th>Name</th>
+                                            <th>Category</th>
+                                            <th>Price</th>
+                                            <th>Created</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Trident</td>
+                                            <td>Image</td>
                                             <td>Internet
                                                 Explorer 4.0
                                             </td>
@@ -45,6 +46,15 @@
                                             <td> 4</td>
                                             <td>X</td>
                                         </tr>
+                                        @foreach ($dishes as $dish)
+                                            <tr>
+                                                <td>{{ $dish->name }}</td>
+                                                <td>{{ $dish->category->name }}</td>
+                                                <td>Win 95+</td>
+                                                <td> 4</td>
+                                                <td>{{ $dish->created_at }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -56,14 +66,13 @@
         </div>
     </div>
     @endsection
-
+    <script src="/plugins/jquery/jquery.min.js"></script>
     <script>
         $(function() {
             $("#example1").DataTable({
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
     </script>

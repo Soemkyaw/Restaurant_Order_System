@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
-use App\Models\Category;
+use App\Models\Dish;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Dish extends Model
+class Category extends Model
 {
     use HasFactory;
 
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
+    // public function dishes()
+    // {
+    //     return $this->hasMany(Dish::class);
+    // }
 }
