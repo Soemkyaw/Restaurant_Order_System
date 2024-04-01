@@ -11,76 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: #230c33;
-        }
-
-        nav {
-            background-color: #caa8f5;
-        }
-
-        .nav-section {
-            max-width: 800px;
-            margin: auto auto;
-            padding: 10px 0;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .nav-section a {
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #592e83;
-            padding: 0px 10px;
-            text-shadow: 1px 1px 1px #1c1515;
-        }
-
-        .card {
-            background-color: #9984d4 !important;
-            transition: all 0.5s ease-in-out;
-        }
-
-        .card:hover {
-            border-color: #caa8f5;
-            box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
-        }
-
-        .card:hover .card-button {
-            transform: translate(-50%, 50%);
-            opacity: 1;
-        }
-
-        .card-text {
-            color: #230c33;
-        }
-
-        .card-button {
-            transform: translate(-50%, 125%);
-            width: 50%;
-            border-radius: 1rem;
-            border: none;
-            background-color: #caa8f5;
-            color: #230c33;
-            font-size: 1rem;
-            padding: .5rem 1rem;
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            opacity: 0;
-            transition: 0.3s ease-out;
-        }
-
-        .bg-category {
-            background-color: #592e83;
-            color: #caa8f5;
-        }
     </style>
 </head>
 
@@ -98,6 +30,39 @@
     @yield('content')
     {{-- content end --}}
 
+    <footer class="mt-5">
+        <div class="container mb-3">
+            <div class=" row">
+                <div class="col pt-3">
+                    <h4>Be the first to know!</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ut similique sapiente,
+                        cumque magnam officia minus laudantium vel eveniet rem?</p>
+                </div>
+                <div class="col pt-3 ">
+                    <input type="text" class="mx-auto" placeholder="Name">
+                    <input type="email" class="mx-auto" placeholder="Email">
+                    <input type="submit" class="mx-auto subscribe" value="Subscribe">
+                </div>
+            </div>
+        </div>
+        <div class=" copy-right">
+            <div class="container ">
+                <div class="row">
+                    <div class="col-auto col-lg-6 py-2">
+                        <span class="">@ 2024 Shal Sar Restaurant.All Right Reserved</span>
+                    </div>
+                    <div class="col-auto col-lg-6 mx-auto py-2">
+                        <a href="" class=""><span class=""><i
+                                    class="fa-brands fa-square-facebook fs-3 me-3"></i></span></a>
+                        <a href="" class=""><span class=""><i
+                                    class="fa-brands fa-square-instagram fs-3 me-3"></i></span></a>
+                        <a href="" class=""><span class=""><i
+                                    class="fa-brands fa-square-github fs-3 me-3"></i></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
