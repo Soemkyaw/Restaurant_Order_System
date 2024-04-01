@@ -17,7 +17,7 @@ class WaiterController extends Controller
 
     public function show(Dish $dish)
     {
-        dd('hit');
+        return view('waiter.dishDetail',compact('dish'));
     }
 
     public function filterByCategory(Category $category)

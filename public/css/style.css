@@ -103,3 +103,23 @@ footer .copy-right a{
     color: #230c33;
 }
 
+.dishDetail{
+    color: #caa8f5;
+}
+
+.dishDetail .ingredient{
+    background-color: #caa8f5;
+    color: #230c33;
+}
+
+.dishDetail button{
+    background-color: #caa8f5;
+    color: #230c33;
+    border: none;
+    width: 40px;
+}
+
+.dishDetail label {
+    color: white;
+}
+
