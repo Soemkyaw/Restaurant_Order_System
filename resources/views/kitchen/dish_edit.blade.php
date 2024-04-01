@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">New Dish</h1>
+                        <h1 class="m-0">Edit Dish</h1>
                     </div>
                 </div>
             </div>
@@ -21,17 +21,18 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Dish</h3>
+                                <h3 class="card-title">{{ Str::ucfirst($dish->name) }}</h3>
                                 <a href="/dish" class="btn btn-sm btn-default" style="float: right">Back</a>
                             </div>
 
                             <div class="card-body">
-                                <form action="{{ route('dish.store') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('dish.update',$dish) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
+                                    @method('PUT')
                                     <div class="row mb-3">
                                         <div class="col-md-6">
                                             <label  class="form-label">Dish Name</label>
-                                            <input type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="exp: pizza">
+                                            <input type="text" name="name" value="{{ old('name',$dish->name) }}" class="form-control" placeholder="exp: pizza">
                                             @error('name')
                                                 <small class=" text-danger">{{ $message }}</small>
                                             @enderror
@@ -41,7 +42,7 @@
                                             <select name="category_id" class="form-control">
                                                 <option  selected disabled>Select Category</option>
                                                 @foreach ($categories as $category)
-                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                    <option {{ $category->id == $dish->category_id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                             @error('category_id')
@@ -52,6 +53,7 @@
                                       <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <label  class="form-label d-block">Dish Image</label>
+                                                <img src="{{ asset('storage/'.$dish->image) }}" class=" img-bordered img-thumbnail" width="120px" height="100px">
                                                 <input type="file" name="image" class="">
                                                 @error('image')
                                                     <small class=" text-danger d-block">{{ $message }}</small>
@@ -59,14 +61,14 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <label  class="form-label d-block">Dish Price</label>
-                                                <input type="number" name="price" value="{{ old('price') }}" class=" form-control" placeholder="0">
+                                                <input type="number" name="price" value="{{ old('price',$dish->price) }}" class=" form-control" placeholder="0">
                                                 @error('price')
                                                     <small class=" text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
                                       </div>
                                       <div class=" text-center mt-5">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
                                       </div>
                                 </form>
                             </div>

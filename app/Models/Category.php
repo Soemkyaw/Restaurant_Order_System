@@ -10,8 +10,8 @@ class Category extends Model
 {
     use HasFactory;
 
-    // public function dishes()
-    // {
-    //     return $this->hasMany(Dish::class);
-    // }
+    public function dishes()
+    {
+        return $this->hasMany(Dish::class);
+    }
 }
