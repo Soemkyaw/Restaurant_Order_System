@@ -1,24 +1,23 @@
-// Get references to HTML elements
-var counterElement = document.getElementById("counter");
+var counterInput = document.getElementById("counterInput");
 var plusButton = document.getElementById("plusBtn");
 var minusButton = document.getElementById("minusBtn");
 
-// Initialize counter variable
-var counterValue = 0;
-
-// Function to update counter value and display
-function updateCounter() {
-    counterElement.textContent = counterValue;
+// Function to update counter value
+function updateCounter(value) {
+    counterInput.value = value;
 }
 
 // Event listener for plus button
 plusButton.addEventListener("click", function () {
-    counterValue++;
-    updateCounter();
+    var currentValue = parseInt(counterInput.value);
+    updateCounter(currentValue + 1);
 });
 
 // Event listener for minus button
 minusButton.addEventListener("click", function () {
-    counterValue--;
-    updateCounter();
+    var currentValue = parseInt(counterInput.value);
+    if (currentValue == 0) {
+        return;
+    }
+    updateCounter(currentValue - 1);
 });

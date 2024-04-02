@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dish;
+use App\Models\Table;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,8 @@ class WaiterController extends Controller
 
     public function show(Dish $dish)
     {
-        return view('waiter.dishDetail',compact('dish'));
+        $tables = Table::all();
+        return view('waiter.dishDetail',compact('dish','tables'));
     }
 
     public function filterByCategory(Category $category)

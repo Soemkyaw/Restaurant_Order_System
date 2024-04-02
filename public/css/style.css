@@ -108,11 +108,12 @@ footer .copy-right a{
 }
 
 .dishDetail .ingredient{
-    background-color: #caa8f5;
-    color: #230c33;
+    /* background-color: #caa8f5;
+    color: #230c33; */
+    color: #caa8f5;
 }
 
-.dishDetail button{
+.dishDetail .numBtn{
     background-color: #caa8f5;
     color: #230c33;
     border: none;
@@ -121,5 +122,51 @@ footer .copy-right a{
 
 .dishDetail label {
     color: white;
+}
+
+.dishDetail textarea {
+    background-color: #9984d4;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #230c33;
+}
+
+.dishDetail .counterInput{
+    width: 50px;
+    border: none;
+    background-color: #230c33;
+    color: #caa8f5;
+    text-align: center;
+}
+.counterInput::-webkit-inner-spin-button,
+.counterInput::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.counterInput[type=number] {
+    -moz-appearance: textfield;
+}
+
+.orderBtn{
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #8459fa;
+    /* transition: all 0.3s ease-in; */
+}
+
+.orderBtn:hover{
+    background-color: #592e83;
+    color: #caa8f5;
+}
+
+select {
+    padding: 0px 10px;
+    border: 1px solid #ccc;
+    background-color: #caa8f5;
+    border-radius: 0px;
+    outline: none;
 }
 
