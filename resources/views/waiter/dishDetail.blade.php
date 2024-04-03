@@ -41,6 +41,9 @@
                                 <option value="{{ $table->id }}">{{ $table->number }}</option>
                             @endforeach
                         </select>
+                        <div class="" id="error-messages">
+                            {{-- <small class="text-danger">You need to choose table</small> --}}
+                        </div>
                     </div>
                     <div class="my-3">
                         <label class="form-label d-block m-0 p-0">Note - </label>
@@ -67,14 +70,20 @@
                     'tableId': $('#tableId').val()
                 }
 
-                $.ajax({
-                    url: 'http://127.0.0.1:8000/waiter/cart',
-                    type: 'GET',
-                    data: $resource,
-                    success: function($response) {
-                        console.log('hi');
-                    }
-                })
+                if ($resource.tableId) {
+                    $.ajax({
+                        url: '/waiter/cart',
+                        type: 'GET',
+                        data: $resource,
+                        success: function($response) {
+                            if ($response.status == 'success') {
+                                window.location.href = "/";
+                            }
+                        }
+                    })
+                } else {
+                    $('#error-messages').html('<small class="text-danger">Please choose a table.</small>');
+                }
             })
         });
     </script>

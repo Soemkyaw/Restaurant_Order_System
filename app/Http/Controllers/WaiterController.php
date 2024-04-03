@@ -33,10 +33,13 @@ class WaiterController extends Controller
     public function addToCart(Request $request)
     {
         $data = $this->cartData($request);
-        Cart::create($data);
-
-        return response()->json($data, 200, $headers);
+        $aa = Cart::create($data);
+        $data = [
+            'status' => 'success'
+        ];
+        return response()->json($data, 200);
     }
+
 
     private function cartData($request)
     {
