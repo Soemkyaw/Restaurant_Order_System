@@ -60,14 +60,21 @@
     <script>
         $(document).ready(function() {
             $('#addToCart').click(function() {
-                $count = $('#counterInput').val();
-                $dishId = $('#dishId').val();
-                $note = $('#note').val();
-                $tableId = $('#tableId').val();
-                console.log($count);
-                console.log($dishId);
-                console.log($note);
-                console.log($tableId);
+                $resource = {
+                    'count': $('#counterInput').val(),
+                    'dishId': $('#dishId').val(),
+                    'note': $('#note').val(),
+                    'tableId': $('#tableId').val()
+                }
+
+                $.ajax({
+                    url: 'http://127.0.0.1:8000/waiter/cart',
+                    type: 'GET',
+                    data: $resource,
+                    success: function($response) {
+                        console.log('hi');
+                    }
+                })
             })
         });
     </script>

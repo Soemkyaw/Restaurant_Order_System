@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Dish;
 use App\Models\Table;
 use App\Models\Category;
@@ -27,5 +28,23 @@ class WaiterController extends Controller
         $dishes = Dish::where('category_id',$category->id)->get();
         $categories = Category::all();
         return view('waiter.index',compact('dishes','categories'));
+    }
+
+    public function addToCart(Request $request)
+    {
+        $data = $this->cartData($request);
+        Cart::create($data);
+
+        return response()->json($data, 200, $headers);
+    }
+
+    private function cartData($request)
+    {
+        return [
+            'table_id' => $request->tableId,
+            'dish_id' => $request->dishId,
+            'qty' => $request->count,
+            'note' => $request->note,
+        ];
     }
 }
