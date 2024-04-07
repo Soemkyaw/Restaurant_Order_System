@@ -3,28 +3,36 @@
 
 @section('content')
     <section class="container">
-        <div class="row align-items-center">
-            <div class="col-auto me-3">
-                <input type="password" class="form-control mt-3" id="inputPassword2" placeholder="Search in menu">
-            </div>
-            <div class="mt-3 col-auto">
-                @foreach ($categories as $category)
-                    @php
-                        $dishCount = $category->dishes->count();
-                    @endphp
-                    {{-- <a href="{{ route('category.dishes', $category) }}"
+        <div class=" d-flex align-items-center justify-content-between">
+            <div class="row align-items-center">
+                <div class="col-auto me-3">
+                    <input type="password" class="form-control mt-3" id="inputPassword2" placeholder="Search in menu">
+                </div>
+                <div class="mt-3 col-auto">
+                    @foreach ($categories as $category)
+                        @php
+                            $dishCount = $category->dishes->count();
+                        @endphp
+                        {{-- <a href="{{ route('category.dishes', $category) }}"
                         class=" bg-category mx-2 py-2 px-3 rounded text-decoration-none">
                         <span>{{ Str::ucfirst($category->name) }}
                             {{ $dishCount }}</span>
                     </a> --}}
-                    <a href="{{ route('category.dishes', $category) }}"
-                        class=" bg-category mx-2 py-2 px-3 rounded text-decoration-none  position-relative">
-                        {{ Str::ucfirst($category->name) }}
-                        <span class="position-absolute top-100 start-100 translate-middle badge rounded-pill bgc text-dark">
-                            {{ $dishCount }}
-                        </span>
-                    </a>
-                @endforeach
+                        <a href="{{ route('category.dishes', $category) }}"
+                            class=" bg-category mx-2 py-2 px-3 rounded text-decoration-none  position-relative">
+                            {{ Str::ucfirst($category->name) }}
+                            <span
+                                class="position-absolute top-100 start-100 translate-middle badge rounded-pill bgc text-dark">
+                                {{ $dishCount }}
+                            </span>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+            <div class="">
+                <a href="{{ route('cart.index') }}" class="mt-3 mx-2 py-2 px-3 rounded cartBtn text-decoration-none">
+                    <i class="fa-solid fa-cart-shopping me-2"></i><span class="badge">{{ $carts->count() }}</span>
+                </a>
             </div>
         </div>
         <div class="row">

@@ -120,6 +120,13 @@ footer .copy-right a{
     width: 40px;
 }
 
+.numBtn{
+    background-color: #230c33;
+        color: #caa8f5;
+        border: none;
+        width: 40px;
+}
+
 .dishDetail label {
     color: white;
 }
@@ -139,6 +146,15 @@ footer .copy-right a{
     color: #caa8f5;
     text-align: center;
 }
+.counterInput {
+    width: 50px;
+    border: none;
+    background-color: transparent;
+    color: #230c33;
+    text-align: center;
+    margin: 0;
+}
+
 .counterInput::-webkit-inner-spin-button,
 .counterInput::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -170,3 +186,61 @@ select {
     outline: none;
 }
 
+.cartBtn {
+    background-color: #caa8f5;
+    color: #230c33;
+    outline: none;
+    border: none;
+}
+
+.cartBtn span{
+    background-color: #592e83;
+    color: #caa8f5;
+
+}
+
+.cartBtn:hover {
+    background-color: #592e83;
+    color: #caa8f5;
+}
+
+.cartBtn:hover span {
+    background-color: #caa8f5;
+    color: #592e83;
+}
+
+table {
+    background-color: #caa8f5;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 5px;
+}
+
+td,
+th {
+    border: 1px solid #230c33;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #9984d4b4;
+}
+
+td img {
+    width: 100px;
+}
+
+.cartTable2 {
+    display: none;
+}
+
+@media (max-width: 775px) {
+    .cartTable {
+        display: none;
+    }
+    .cartTable2{
+        display: table;
+    }
+}

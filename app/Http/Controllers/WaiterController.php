@@ -12,9 +12,11 @@ class WaiterController extends Controller
 {
     public function index()
     {
+        $carts = Cart::all();
         $dishes = Dish::all();
+        // dd($carts->count());
         $categories = Category::all();
-        return view('waiter.index',compact('dishes','categories'));
+        return view('waiter.index',compact('dishes','categories','carts'));
     }
 
     public function show(Dish $dish)
@@ -25,9 +27,10 @@ class WaiterController extends Controller
 
     public function filterByCategory(Category $category)
     {
+        $carts = Cart::all();
         $dishes = Dish::where('category_id',$category->id)->get();
         $categories = Category::all();
-        return view('waiter.index',compact('dishes','categories'));
+        return view('waiter.index',compact('dishes','categories','carts'));
     }
 
     public function addToCart(Request $request)
@@ -39,6 +42,7 @@ class WaiterController extends Controller
         ];
         return response()->json($data, 200);
     }
+
 
 
     private function cartData($request)
