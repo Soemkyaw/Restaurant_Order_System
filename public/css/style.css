@@ -161,9 +161,9 @@ footer .copy-right a{
     margin: 0;
 }
 
-.counterInput[type=number] {
+/* .counterInput[type=number] {
     -moz-appearance: textfield;
-}
+} */
 
 .orderBtn{
     padding: 8px 10px;

@@ -27,3 +27,4 @@ Route::resource('/dish',DishController::class);
 
 // ajax
 Route::get('/waiter/cart',[WaiterController::class,'addToCart'])->name('waiter.cart');
+Route::get('/order/create',[OrderController::class,'addOrder'])->name('order.create');
