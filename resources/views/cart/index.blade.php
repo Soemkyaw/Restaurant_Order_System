@@ -21,7 +21,7 @@
                             <input type="hidden" class="dishId" value="{{ $cart->dish_id }}">
                             <input type="hidden" class="tableId" value="{{ $cart->table_id }}">
                             <td class="text-center">{{ $cart->table->number }}</td>
-                            <td class="text-center">{{ $cart->note }}</td>
+                            <td class="text-center" id="note">{{ $cart->note }}</td>
                             <td class="text-center">
                                 <button id="minusBtn" class="numBtn minusBtn">-</button>
                                 <input type="number" class=" counterInput " id="counterInput" value="{{ $cart->qty }}">
@@ -82,15 +82,18 @@
                         'table_id' : parseInt($(this).find('.tableId').val()),
                         'dish_id' : parseInt($(this).find('.dishId').val()),
                         'qty' : parseInt($(this).find('.counterInput').val()),
+                        'note' : $(this).find('#note').text(),
                     });
                 });
                 // console.log($orders);
                 $.ajax({
                     url : "/order/create",
                     method : "GET",
-                    data : { "orders" : $orders },
+                    data : Object.assign({},$orders),
                     success : function(response){
-
+                        if (response.status == 'success') {
+                                window.location.href = "/";
+                        }
                     }
                 })
             })
