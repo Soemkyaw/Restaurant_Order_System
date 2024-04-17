@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('order_lists', function (Blueprint $table) {
             $table->id();
             $table->foreignId("table_id");
-            $table->foreignId("dish");
+            $table->foreignId("dish_id");
             $table->integer("qty");
             $table->text("note");
             $table->integer('order_status');

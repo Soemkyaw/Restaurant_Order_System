@@ -6,6 +6,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\DishController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\WaiterController;
+use App\Http\Controllers\CategoryController;
 
 Auth::routes([
     'password/confirm' => false,
@@ -22,9 +23,15 @@ Route::get('/waiter/dish/{dish}', [WaiterController::class,'show'])->name('waite
 Route::get('/cart/list',[CartController::class,'index'])->name('cart.index');
 
 // kitchen panel
-Route::get('/home', [OrderController::class, 'index'])->name('home');
 Route::resource('/dish',DishController::class);
+
+Route::get('/order', [OrderController::class, 'index'])->name('order');
+Route::get('/order/{order}/approve',[OrderController::class,'approve'])->name('order.approve');
+Route::get('/order/{order}/ready',[OrderController::class,'ready'])->name('order.ready');
+Route::get('/order/{order}/cancel',[OrderController::class,'cancel'])->name('order.cancel');
+
+Route::resource('/category',CategoryController::class);
 
 // ajax
 Route::get('/waiter/cart',[WaiterController::class,'addToCart'])->name('waiter.cart');
-Route::get('/order/create',[OrderController::class,'addOrder'])->name('order.create');
+Route::get('/order/create',[OrderController::class,'create'])->name('order.create');

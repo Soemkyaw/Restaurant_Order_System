@@ -9,5 +9,14 @@ class OrderList extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['table_id','dish','qty','note','order_status'];
+    protected $fillable = ['table_id','dish_id','qty','note','order_status'];
+
+    public function table()
+    {
+        return $this->belongsTo(Table::class);
+    }
+    public function dish()
+    {
+        return $this->belongsTo(Dish::class);
+    }
 }

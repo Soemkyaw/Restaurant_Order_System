@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->foreignId('category_id');
             $table->integer('price');
+            $table->boolean('is_deleted')->default(false);
             $table->timestamps();
         });
     }
